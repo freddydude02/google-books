@@ -2,14 +2,13 @@ import styles from "./SearchIndex.module.scss";
 import Button from "../../components/Button";
 import SearchBar from "../../components/SearchBar";
 import getData from "../../assets/FetchFunction/getData";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { SearchContext } from "../../context/dataContexts";
 
-const SearchIndex = ({ data }) => {
+const SearchIndex = () => {
     const [currentSearch, setCurrentSearch] = useState("");
-    const newUrl =
-        "https://books.googleapis.com/books/v1/volumes?q=" +
-        currentSearch +
-        "&maxResults=40";
+    const data = useContext(SearchContext);
+
     return (
         <>
             <SearchBar
@@ -22,7 +21,7 @@ const SearchIndex = ({ data }) => {
                 label="Search"
                 clickHandler={() => {
                     if (currentSearch !== "") {
-                        return data.setFetchData(getData(newUrl));
+                        data.setSearchTerm(currentSearch);
                     }
                 }}
             />
