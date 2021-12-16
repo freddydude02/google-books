@@ -1,5 +1,5 @@
 import styles from "./SearchBar.module.scss";
-const SearchBar = () => {
-    return <input type="text"></input>;
+const SearchBar = ({ inputHandler, value }) => {
+    return <input type="text" value={value} onInput={inputHandler} />;
 };
 export default SearchBar;

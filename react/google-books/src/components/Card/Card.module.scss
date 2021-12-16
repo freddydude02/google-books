@@ -1,0 +1,20 @@
+@import "../../assets/styles/mixins/flex-mix.scss";
+.card {
+    @include flex-mix(column, unset, center);
+    padding-top: 20px;
+    height: 100vh;
+    &__img-box {
+        height: 50vh;
+    }
+    &__img {
+        height: 100%;
+        width: auto;
+    }
+    &__title {
+    }
+    &__authors {
+    }
+    &__description {
+        font-size: 12px;
+    }
+}
